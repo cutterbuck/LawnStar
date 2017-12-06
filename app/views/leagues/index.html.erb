@@ -1,0 +1,11 @@
+<h1>Current LawnStar Leagues</h1>
+
+<%@leagues.each do |league| %>
+  <h4>League Name: <%= link_to league.name, league_path(league) %></h4>
+  <h5>League players: </h5>
+  <ul><% league.players.each do |player| %>
+    <li><%=link_to player.name, player_path(player)%></li>
+  <%end%></ul>
+<%end%>
+
+<%=link_to "Create a new League",  new_league_path %> 

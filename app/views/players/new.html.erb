@@ -1,0 +1,9 @@
+<h1>Create a Player</h1>
+
+<%= form_for @player do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :League %>
+  <%= f.collection_select :league_id, League.all, :id, :name %>
+  <%= f.submit %>
+<% end %>

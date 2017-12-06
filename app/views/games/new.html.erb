@@ -1,0 +1,17 @@
+<h1>Create a Game</h1>
+
+<%= form_for @game do |f| %>
+  <%=f.label :Date %>
+  <%=f.date_field :date %>
+  <%= f.label :Select_Sport %>
+  <%= f.collection_select :sport_id, Sport.all, :id, :name %>
+  <%= f.label :Choose_An_Opponent %>
+  <%= f.collection_select :opponent, Player.all, :id, :name %>
+  <%= f.label :arena %>
+  <%= f.text_field :arena %> </br>
+  <%= f.label :Your_Score %>
+  <input type="text" name="your_score"></br>
+  <%= f.label :Opponents_Score %>
+    <input type="text"  name="opponent_score"></br>
+  <%= f.submit %>
+<% end %>

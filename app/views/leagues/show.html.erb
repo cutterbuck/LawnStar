@@ -1,5 +1,7 @@
 <%= @league.name %>
 
-<%= @league.players.each do |p| %>
-  <%= link_to p.name, player_path(p) %>
+<ul>
+<% @league.players.each do |p| %>
+  <li><%= link_to p.name, player_path(p) %></li>
 <% end %>
+</ul>
