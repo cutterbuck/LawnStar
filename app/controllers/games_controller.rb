@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 
+  #skip_before_action :authorized
+
   def new
     @game = Game.new
   end

@@ -18,7 +18,14 @@ class PlayersController < ApplicationController
   end
 
   def show
+    #byebug
     @player = Player.find(params[:id])
+    if @current_player.id == @player.id
+      @player
+    else
+      flash[:message] = "Do not have access to view this page."
+      redirect_to player_path(@current_player)
+    end
   end
 
   private

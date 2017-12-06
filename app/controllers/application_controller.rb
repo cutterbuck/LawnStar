@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
 
   def authorized
+    #byebug
     if logged_in?
     else
       redirect_to signin_path
