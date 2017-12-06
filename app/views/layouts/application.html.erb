@@ -9,6 +9,11 @@
   </head>
 
   <body>
+     <br>
+     <% if logged_in? %>
+      <%= link_to "Sign Out", sessions_path %>
+    <%end%>
+     <br>
     <%= yield %>
   </body>
 </html>

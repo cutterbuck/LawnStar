@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "signup", to: "players#new", as: "signup"
   get "/signin", to: "sessions#new", as: "signin"
   post "/sessions", to: "sessions#create", as: "sessions"
+  get '/sessions', to: "sessions#destroy"
   delete "/sessions", to: "sessions#destroy", as: "signout"
-
 
 end
