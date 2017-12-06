@@ -6,21 +6,20 @@ class Game < ApplicationRecord
 
 
   def game_winner_or_loser_message
-    byebug
-    their_pg = self.player_games.select do |pg|
-      !(pg.player.id == @current_player.id)
-    end
+    #byebug
+    their_pg = self.player_games.first
+    my_pg = self.player_games.last
     @their_name = their_pg.player.name
 
-    winner_pg = self.player_games.first
-    @current_player.name
+    winner_pg = 0
+    winner_player = ''
     self.player_games.each do | pg|
-      if winner_pg.score > pg.score
-        winner_pg = pg
+      if pg.score > winner_pg
+        winner_pg = pg.score
+        winner_player = pg.name
       end
     end
-
-    if winner_pg.player.id == @current_player.id
+    if winner_player == my_pg.player.name
       "You whooped #{@their_name}'s ass! Good job bro!"
     else
       "#{@their_name} massacred you bro, take a lap!"

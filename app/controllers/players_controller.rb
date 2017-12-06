@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 
-  skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorized, only: [:new, :create, :show]
 
   def new
     @player = Player.new
@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
   end
 
   def show
-    if Player.exists?(params[:id]) && @current_player.id == params[:id].to_i
+    if Player.exists?(params[:id])
       @player = Player.find(params[:id])
     else
       flash[:message] = "Do not have access to view this page."
