@@ -30,4 +30,8 @@ class Player < ApplicationRecord
     losses
   end
 
+  def win_percentage
+    ((player_wins.to_f/(player_wins + player_losses).to_f)*100).round(2)
+  end
+
 end

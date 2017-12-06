@@ -16,6 +16,7 @@ class LeaguesController < ApplicationController
   def show
     @league = League.find(params[:id])
     @games_played = @league.games_played
+    @league_mvp = @league.find_mvp
   end
 
   private

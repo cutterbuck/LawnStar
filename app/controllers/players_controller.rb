@@ -26,6 +26,8 @@ class PlayersController < ApplicationController
     end
     @wins = @player.player_wins
     @losses = @player.player_losses
+    @win_percentage = @player.win_percentage
+    @total_games_played = @wins + @losses
   end
 
   private

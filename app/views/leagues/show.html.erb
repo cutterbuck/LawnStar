@@ -1,5 +1,5 @@
 <h1><%= @league.name %></h1>
-
+<h4>League MVP: <%=link_to @league_mvp.name.capitalize, player_path(@league_mvp) %> Win Percentage: <%= @league_mvp.win_percentage%>%</h4>
 
 <h4>Players:</h4>
 <ul>

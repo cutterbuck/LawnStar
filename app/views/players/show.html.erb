@@ -1,7 +1,7 @@
 <h1><%=@player.name%></h1>
-League: <p><%=@player.league.name%></p>
-
-<h4>Wins: <%=@wins%></h4>
-<h4>Losses: <%=@losses%></h4>
-
+<h2>League you belong to: <%=link_to @player.league.name, league_path(@player.league)%></h2>
+<h3>Total Games Played: <%=@total_games_played%></h3>
+<h3> Win Percentage: <%=@win_percentage%>%</h3>
+<h3>Wins: <%=@wins%></h3> <h3>Losses: <%=@losses%></h3>
+<br>
 <%=link_to "Log a Game Bro", new_game_path%>
