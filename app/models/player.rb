@@ -9,7 +9,7 @@ class Player < ApplicationRecord
     self.player_games.each do |pg|
       my_score = pg.score
       opponent_id = pg.game.opponent.to_i
-      opp_score = PlayerGame.find_by(player_id: opponent_id).score
+      opp_score = PlayerGame.find_by(game_id: pg.game.id, player_id: opponent_id ).score
       if my_score > opp_score
         wins += 1
       end
@@ -22,7 +22,7 @@ class Player < ApplicationRecord
     self.player_games.each do |pg|
       my_score = pg.score
       opponent_id = pg.game.opponent.to_i
-      opp_score = PlayerGame.find_by(player_id: opponent_id).score
+      opp_score = PlayerGame.find_by(game_id: pg.game.id, player_id: opponent_id ).score
       if my_score < opp_score
         losses += 1
       end

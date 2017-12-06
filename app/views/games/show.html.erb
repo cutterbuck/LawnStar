@@ -8,3 +8,5 @@
 <%@game.player_games.each do |pg| %>
   <li><%=pg.player.name.capitalize%>: <%=pg.score%></li>
 <%end%>
+
+<%= link_to "Player Page", player_path(@current_player)%>
