@@ -10,6 +10,7 @@ PlayerGame.destroy_all
 Player.destroy_all
 Game.destroy_all
 Sport.destroy_all
+League.destroy_all
 
 
 

@@ -3,7 +3,15 @@
 <%= form_for @player do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
   <%= f.label :League %>
   <%= f.collection_select :league_id, League.all, :id, :name %>
+
   <%= f.submit %>
 <% end %>
