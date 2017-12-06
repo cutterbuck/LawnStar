@@ -1,4 +1,7 @@
 <h1><%=@player.name%></h1>
 League: <p><%=@player.league.name%></p>
 
-<%=link_to "Log a Game Bro", new_game_path%> 
+<h4>Wins: <%=@wins%></h4>
+<h4>Losses: <%=@losses%></h4>
+
+<%=link_to "Log a Game Bro", new_game_path%>

@@ -3,7 +3,7 @@ class LeaguesController < ApplicationController
   def index
     @leagues = League.all
   end
-  
+
   def new
     @league = League.new
   end
@@ -15,6 +15,7 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
+    @games_played = @league.games_played
   end
 
   private

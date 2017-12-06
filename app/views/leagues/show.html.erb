@@ -1,7 +1,12 @@
-<%= @league.name %>
+<h1><%= @league.name %></h1>
 
+
+<h4>Players:</h4>
 <ul>
 <% @league.players.each do |p| %>
   <li><%= link_to p.name, player_path(p) %></li>
 <% end %>
 </ul>
+
+<h5>Total Players: <%= @league.players.count %>
+<h5>Total Games Played: <%= @games_played %>

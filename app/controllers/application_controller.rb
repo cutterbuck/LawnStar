@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   # who is my current user
   # am i logged in or not
   def current_player
+    
     if session[:player_id]
       @current_player ||= Player.find(session[:player_id])
     end

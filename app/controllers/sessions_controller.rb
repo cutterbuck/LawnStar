@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # you are who you say you are
       session[:player_id] = @player.id
       flash[:message] = "Welcome #{@player.name}."
-      redirect_to player_path(@player)
+      redirect_to league_path(@player.league)
     else
 
       # sign in failed

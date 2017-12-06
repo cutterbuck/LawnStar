@@ -24,6 +24,8 @@ class PlayersController < ApplicationController
       flash[:message] = "Do not have access to view this page."
       redirect_to player_path(@current_player)
     end
+    @wins = @player.player_wins
+    @losses = @player.player_losses
   end
 
   private
