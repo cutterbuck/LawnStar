@@ -1,4 +1,11 @@
+<h1><%=@game %></h1>
 <li>Lawn Sport: <%=@game.sport.name %></li>
 <li>When: <%= @game.date.strftime("%B %e, %Y") %></li>
-<li>Where?: <%=@game.arena %></li><br>
-<li>You played: <%=@game.opponent_name %></li>
+<li>Where: <%=@game.arena %></li>
+<li>You played: <%=@game.opponent_name.capitalize %></li><br>
+
+<h3>Game Score</h3>
+<h4>Game Summary: <%=@game.game_winner_or_loser_message %></h4>
+<%@game.player_games.each do |pg| %>
+  <li><%=pg.player.name.capitalize%>: <%=pg.score%></li>
+<%end%>
