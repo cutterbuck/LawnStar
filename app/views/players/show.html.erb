@@ -1,6 +1,8 @@
 <h1><%=@player.name%></h1>
 <h2>League you belong to: <%=link_to @player.league.name, league_path(@player.league)%></h2>
 <h3>Total Games Played: <%=@total_games_played%></h3>
+<h3>Your Biggest Rival: <%=@rival_name%>, You've faced <%=@rival_name%> <%=@amount_of_times_youve_played_eachother%> time(s)!</h3>
+<h3>Your Biggest Nemesis: <%=@nemesis_name%> whooped you <%=@nemesis_wins%> time(s)!</h3>
 <h3> Win Percentage: <%=@win_percentage%>%</h3>
 <h3>Wins: <%=@wins%></h3> <h3>Losses: <%=@losses%></h3>
 <br>

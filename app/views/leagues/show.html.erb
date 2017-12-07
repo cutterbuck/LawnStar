@@ -1,20 +1,20 @@
 <h1><%= @league.name %> League</h1>
 <h4>League MVP:
 <% if @league_mvp == nil %>None<%else%>
-    <%=link_to @league_mvp.name.capitalize, player_path(@league_mvp) %> Win Percentage: <%= @league_mvp.win_percentage%>%</h4>
+    <%=link_to @league_mvp.name.titleize, player_path(@league_mvp) %> Win Percentage: <%= @league_mvp.win_percentage%>%</h4>
 <% end %>
 <h4>Current League Slacker: <%=link_to @league_slacker.name.titleize, player_path(@league_slacker) %> Games Played: <%= @league_slacker.games.count%></h4>
 <h4>Players:</h4>
 <ul>
 <% @league.players.each do |p| %>
-  <li><%= link_to p.name, player_path(p) %></li>
+  <li><%= link_to p.name.titleize, player_path(p) %></li>
 <% end %>
 </ul>
 
 <h5>Total Players: <%= @league.players.count %>
 <h5>Total Games Played: <%= @games_played %>
 
-<h5>Sports: </h5>
+<h5>Sports being played in this league: </h5>
 <ul>
 <% @league.sports.each do |s| %>
   <li><%=link_to s.name, sport_path(s)%></li>
