@@ -1,0 +1,7 @@
+<h1><%=@sport.name%></h1>
+
+<p><%=@sport.rules%></p>
+
+<%= link_to "Return to League Page", league_path(@current_player.league)%>
+<br></br>
+<%= link_to "Return to Player Page", player_path(@current_player)%>

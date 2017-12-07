@@ -24,11 +24,15 @@ class League < ApplicationRecord
 
   def find_league_player_with_least_amount_of_games
     slacker = nil
-    slacker_game_count = self.players.first.games.count
-    self.players.each do |player|
-      if player.games.count <= slacker_game_count
-        slacker = player
-        slacker_game_count = player.games.count
+    if self.players.empty?
+      slacker = "None yet"
+    else
+      slacker_game_count = self.players.first.games.count
+      self.players.each do |player|
+        if player.games.count <= slacker_game_count
+          slacker = player
+          slacker_game_count = player.games.count
+        end
       end
     end
     slacker
