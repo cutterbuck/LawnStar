@@ -34,6 +34,7 @@ class PlayersController < ApplicationController
     @total_games_played = @wins + @losses
 
     if @player.played_any_games?
+      @player.sports_wins_losses
       @rival_name = @player.find_rival.first
       @amount_of_times_youve_played_eachother = @player.find_rival.last
       if @player.find_nemesis == nil

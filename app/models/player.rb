@@ -96,4 +96,46 @@ class Player < ApplicationRecord
     ((player_wins.to_f/(player_wins + player_losses).to_f)*100).round(1)
   end
 
+  def sports_wins_losses
+    sports_hash = {}
+    self.player_games.each do |pg|
+      sport = pg.game.sport.name
+      sports_hash[sport] = {}
+      my_score = pg.score
+      opponent_id = pg.game.opponent.to_i
+      if opponent_id == self.id
+        opp_score = PlayerGame.where("game_id = ?", pg.game.id).last.score
+        if my_score > opp_score
+          if sports_hash[sport]["wins"]
+            sports_hash[sport]["wins"] += 1
+          else
+            sports_hash[sport]["wins"] = 1
+          end
+        else
+          if sports_hash[sport]["losses"]
+            sports_hash[sport]["losses"] += 1
+          else
+            sports_hash[sport]["losses"] = 1
+          end
+        end
+      else
+        opp_score = PlayerGame.find_by(game_id: pg.game.id, player_id: opponent_id).score
+        if my_score > opp_score
+          if sports_hash[sport]["wins"]
+            sports_hash[sport]["wins"] += 1
+          else
+            sports_hash[sport]["wins"] = 1
+          end
+        else
+          if sports_hash[sport]["losses"]
+            sports_hash[sport]["losses"] += 1
+          else
+            sports_hash[sport]["losses"] = 1
+          end
+        end
+      end
+    end
+    sports_hash
+  end
+
 end
