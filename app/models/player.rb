@@ -86,6 +86,11 @@ class Player < ApplicationRecord
   #   )
   # end
 
+  def played_any_games?
+    !(self.games.empty?)
+  end
+
+
 
   def win_percentage
     ((player_wins.to_f/(player_wins + player_losses).to_f)*100).round(2)
