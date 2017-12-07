@@ -36,12 +36,17 @@ class PlayersController < ApplicationController
     if @player.played_any_games?
       @rival_name = @player.find_rival.first
       @amount_of_times_youve_played_eachother = @player.find_rival.last
-      @nemesis_name = @player.find_nemesis.first
-      @nemesis_wins = @player.find_nemesis.last
+      if @player.find_nemesis == nil
+        @nemesis_name = "\"N/A\""
+        @nemesis_wins = 0
+      else
+        @nemesis_name = @player.find_nemesis.first
+        @nemesis_wins = @player.find_nemesis.last
+      end
     else
       @rival_name = "None right now. Play some games bro!"
       @amount_of_times_youve_played_eachother = 0
-      @nemesis_name = "N/A"
+      @nemesis_name = "\"N/A\""
       @nemesis_wins = 0
     end
   end
