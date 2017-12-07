@@ -100,37 +100,39 @@ class Player < ApplicationRecord
     sports_hash = {}
     self.player_games.each do |pg|
       sport = pg.game.sport.name
-      sports_hash[sport] = {}
       my_score = pg.score
       opponent_id = pg.game.opponent.to_i
-      if opponent_id == self.id
-        opp_score = PlayerGame.where("game_id = ?", pg.game.id).last.score
-        if my_score > opp_score
-          if sports_hash[sport]["wins"]
+      if sports_hash.keys.include?(sport)
+        if opponent_id == self.id
+          opp_score = PlayerGame.where("game_id = ?", pg.game.id).last.score
+          if my_score > opp_score
             sports_hash[sport]["wins"] += 1
           else
-            sports_hash[sport]["wins"] = 1
+            sports_hash[sport]["losses"] += 1
           end
         else
-          if sports_hash[sport]["losses"]
-            sports_hash[sport]["losses"] += 1
+          opp_score = PlayerGame.find_by(game_id: pg.game.id, player_id: opponent_id).score
+          if my_score > opp_score
+            sports_hash[sport]["wins"] += 1
           else
-            sports_hash[sport]["losses"] = 1
+            sports_hash[sport]["losses"] += 1
           end
         end
       else
-        opp_score = PlayerGame.find_by(game_id: pg.game.id, player_id: opponent_id).score
-        if my_score > opp_score
-          if sports_hash[sport]["wins"]
+        sports_hash[sport] = {"wins" => 0, "losses" => 0}
+        if opponent_id == self.id
+          opp_score = PlayerGame.where("game_id = ?", pg.game.id).last.score
+          if my_score > opp_score
             sports_hash[sport]["wins"] += 1
           else
-            sports_hash[sport]["wins"] = 1
+            sports_hash[sport]["losses"] += 1
           end
         else
-          if sports_hash[sport]["losses"]
-            sports_hash[sport]["losses"] += 1
+          opp_score = PlayerGame.find_by(game_id: pg.game.id, player_id: opponent_id).score
+          if my_score > opp_score
+            sports_hash[sport]["wins"] += 1
           else
-            sports_hash[sport]["losses"] = 1
+            sports_hash[sport]["losses"] += 1
           end
         end
       end

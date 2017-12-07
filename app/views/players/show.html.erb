@@ -8,6 +8,13 @@
       <%=@rival_name%>, You've faced <%=@rival_name%> <%=@amount_of_times_youve_played_eachother%> time(s)!
     <% end %> </h3>
 <h3>Your Biggest Nemesis: <%=@nemesis_name%> whooped you <%=@nemesis_wins%> time(s)!</h3>
-<h3> Win Percentage: <%=@win_percentage%>%</h3>
+<h3>Win Percentage: <%=@win_percentage%>%</h3>
 <h3>Wins: <%=@wins%></h3> <h3>Losses: <%=@losses%></h3>
 <br>
+<h3>Your Record by Sport: </h3>
+  <% @sports_record.collect do |s, r| %>
+    <h5><%= s%>:</h4>
+    <% r.collect do |r, t| %>
+      <%= r%> - <%= t%><br>
+    <% end %><br>
+  <% end %>
