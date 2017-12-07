@@ -1,3 +1,4 @@
+<div id="white-text">
 <h1><%=@player.name%></h1>
 <h2>League you belong to: <%=link_to @player.league.name, league_path(@player.league)%></h2>
 <h3>Total Games Played: <%=@total_games_played%></h3>
@@ -18,3 +19,4 @@
       <%= r%> - <%= t%><br>
     <% end %><br>
   <% end %>
+</div>

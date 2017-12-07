@@ -1,3 +1,4 @@
+<div id="white-text">
 <li>Lawn Sport: <%=@game.sport.name %></li>
 <li>When: <%= @game.date.strftime("%B %e, %Y") %></li>
 <li>Where: <%=@game.arena %></li>
@@ -10,3 +11,4 @@
 <%end%>
 
 <%= link_to "Go Back to Your Stats Bro", player_path(@current_player)%>
+</div>

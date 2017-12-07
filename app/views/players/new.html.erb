@@ -1,3 +1,4 @@
+<div id="white-text">
 <h1>Create a LawnStar Account</h1>
 
 <%= form_for @player do |f| %>
@@ -13,5 +14,6 @@
   <%= f.label :League %>
   <%= f.collection_select :league_id, League.all, :id, :name %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn-danger"%>
 <% end %>
+</div>

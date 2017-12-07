@@ -4,32 +4,43 @@
     <title>LawnStar</title>
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
   </head>
 
   <body>
-     <br>
-     <% if logged_in? %>
-     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="<%=player_path(@current_player)%>">LawnStar</a>
+
+
+      <br>
+      <% if logged_in? %>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="<%=player_path(@current_player)%>">LawnStar</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<%=leagues_path%>">League</a></li>
+            <li><a href="<%=new_game_path%>">Log a Game Bro</a></li>
+            <li><a href="<%=new_sport_path%>">Add a Sport</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<%=player_path(@current_player)%>"><span class="glyphicon glyphicon-user"></span><%=@current_player.name%>'s Stats</a></li>
+            <li><a href="<%=sessions_path%>"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+          </ul>
         </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="<%=leagues_path%>">League</a></li>
-          <li><a href="<%=new_game_path%>">Log a Game Bro</a></li>
-          <li><a href="<%=new_sport_path%>">Add a Sport</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="<%=player_path(@current_player)%>"><span class="glyphicon glyphicon-user"></span><%=@current_player.name%>'s Stats</a></li>
-          <li><a href="<%=sessions_path%>"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
-        </ul>
+      </nav>
+      <%end%>
+      <br>
+
+    <div style="background-color: rgba(128,128,128, 0.8)">
+      <div class="container">
+
+        <%= yield %>
       </div>
-    </nav>
-    <%end%>
-     <br>
-    <%= yield %>
+    </div>
+
   </body>
 </html>

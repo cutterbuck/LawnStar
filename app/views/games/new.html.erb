@@ -1,4 +1,4 @@
-<h1>Create a Game</h1>
+<div id="white-text"><h1>Create a Game</h1>
 
 <%= form_for @game do |f| %>
   <%= f.label "Choose a sport:" %>
@@ -14,5 +14,6 @@
   <%= f.label "Opponent's score:" %>
   <input type="text"  name="opponent_score"></br>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn-danger" %>
 <% end %><br>
+</div>
