@@ -25,7 +25,7 @@ class League < ApplicationRecord
   def find_league_player_with_least_amount_of_games
     slacker = nil
     if self.players.empty?
-      slacker = "None yet"
+      slacker
     else
       slacker_game_count = self.players.first.games.count
       self.players.each do |player|

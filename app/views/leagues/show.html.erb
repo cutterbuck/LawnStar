@@ -3,7 +3,11 @@
 <% if @league_mvp == nil %>None<%else%>
     <%=link_to @league_mvp.name.titleize, player_path(@league_mvp) %> Win Percentage: <%= @league_mvp.win_percentage%>%</h4>
 <% end %>
-<h4>Current League Slacker: <%=link_to @league_slacker.name.titleize, player_path(@league_slacker) %> Games Played: <%= @league_slacker.games.count%></h4>
+<h4>Current League Slacker: <% if @league_slacker == nil %>
+          None yet. Play some games people!!
+    <% else %>
+      <%=link_to @league_slacker.name.titleize, player_path(@league_slacker) %> Games Played: <%= @league_slacker.games.count%></h4>
+  <% end %>
 <h4>Players:</h4>
 <ul>
 <% @league.players.each do |p| %>

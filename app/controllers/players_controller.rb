@@ -9,12 +9,12 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     if @player.valid?
-      @player.send_twilio_message(16093206378)
+      # @player.send_twilio_message(16093206378)
       @player.save
       session[:player_id] = @player.id
 
       redirect_to player_path(@player)
-      #@player.send_twilio_message(16093206378)
+      # @player.send_twilio_message(16093206378)
     else
       render 'new'
     end
@@ -44,7 +44,7 @@ class PlayersController < ApplicationController
         @nemesis_wins = @player.find_nemesis.last
       end
     else
-      @rival_name = "None right now. Play some games bro!"
+      @rival_name = nil
       @amount_of_times_youve_played_eachother = 0
       @nemesis_name = "\"N/A\""
       @nemesis_wins = 0
