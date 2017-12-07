@@ -70,8 +70,22 @@ class Player < ApplicationRecord
       end
     end
     nemesis_hash.sort_by{|k, v| v}.last
-    #byebug
   end
+
+  # account_sid = "AC585916a90d4ff9504546ca4e1e0b9603"
+  # auth_token = "f8876d01f6c92c9ab1de2bfbb7a56cf3"
+  #
+  # CLIENT = Twilio::REST::Client.new(account_sid, auth_token)
+  #
+  # def send_twilio_message(user_phone_number)
+  #   #byebug
+  #   CLIENT.messages.create(
+  #     to: "+#{user_phone_number}",
+  #     from: "+12677133348",
+  #     body: "Welcome to Lawnstar bro! Massacering your bros in cornhole as of late? Make sure you record those W's!"
+  #   )
+  # end
+
 
   def win_percentage
     ((player_wins.to_f/(player_wins + player_losses).to_f)*100).round(2)

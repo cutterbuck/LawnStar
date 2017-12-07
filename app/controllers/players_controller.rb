@@ -9,9 +9,12 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     if @player.valid?
+      @player.send_twilio_message(16093206378)
       @player.save
       session[:player_id] = @player.id
+
       redirect_to player_path(@player)
+      #@player.send_twilio_message(16093206378)
     else
       render 'new'
     end
@@ -24,14 +27,22 @@ class PlayersController < ApplicationController
       flash[:message] = "Do not have access to view this page."
       redirect_to player_path(@current_player)
     end
+    @player.player_wins
     @wins = @player.player_wins
     @losses = @player.player_losses
     @win_percentage = @player.win_percentage
     @total_games_played = @wins + @losses
-    @rival_name = @player.find_rival.first
-    @amount_of_times_youve_played_eachother = @player.find_rival.last
-    @nemesis_name = @player.find_nemesis.first
-    @nemesis_wins = @player.find_nemesis.last
+    if @player.find_rival
+      @rival_name = @player.find_rival.first
+      @amount_of_times_youve_played_eachother = @player.find_rival.last
+      @nemesis_name = @player.find_nemesis.first
+      @nemesis_wins = @player.find_nemesis.last
+    else
+      @rival_name = "None right now. Play some games bro!"
+      @amount_of_times_youve_played_eachother = 0
+      @nemesis_name = "N/A"
+      @nemesis_wins = 0
+    end
   end
 
   private

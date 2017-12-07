@@ -26,4 +26,5 @@
   def opponent_name
     Player.find(self.opponent).name
   end
+
 end
