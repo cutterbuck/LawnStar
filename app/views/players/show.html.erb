@@ -11,6 +11,3 @@
 <h3> Win Percentage: <%=@win_percentage%>%</h3>
 <h3>Wins: <%=@wins%></h3> <h3>Losses: <%=@losses%></h3>
 <br>
-<% if @player.name == @current_player.name %>
-  <%= link_to "Log a Game Bro", new_game_path%>
-<% end %>

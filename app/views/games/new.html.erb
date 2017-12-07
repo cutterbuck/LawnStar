@@ -1,8 +1,7 @@
 <h1>Create a Game</h1>
 
-<%= link_to "Create a sport", new_sport_path %><br></br>
 <%= form_for @game do |f| %>
-  <%= f.label "Or choose from existing sports:" %>
+  <%= f.label "Choose a sport:" %>
   <%= f.collection_select :sport_id, Sport.all, :id, :name %><br>
   <%= f.label "Choose an opponent:" %>
   <%= f.collection_select :opponent, @players, :id, :name %><br>
@@ -17,5 +16,3 @@
 
   <%= f.submit %>
 <% end %><br>
-
-<%= link_to "Return to League Page", league_path(@current_player.league)%>

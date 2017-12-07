@@ -11,7 +11,7 @@
   <body>
      <br>
      <% if logged_in? %>
-      <%=link_to "Sign Out", sessions_path %><br>
+      <%=link_to "Log a Game", new_game_path%> | <%=link_to "Add a Sport", new_sport_path%> | <%= link_to "Return to Player Page", player_path(@current_player)%> | <%= link_to "Return to League Page", league_path(@current_player.league)%> | <%=link_to "Sign Out", sessions_path %><br>
     <%end%>
      <br>
     <%= yield %>
