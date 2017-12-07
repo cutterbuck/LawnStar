@@ -17,4 +17,21 @@ class League < ApplicationRecord
     end
     mvp
   end
+
+  def sports
+    sports_array = self.players.collect{|p| p.games.collect{|g| g.sport}}.flatten.uniq
+  end
+
+  def find_league_player_with_least_amount_of_games
+    slacker = nil
+    slacker_game_count = self.players.first.games.count
+    self.players.each do |player|
+      if player.games.count <= slacker_game_count
+        slacker = player
+        slacker_game_count = player.games.count
+      end
+    end
+    slacker
+  end
+
 end

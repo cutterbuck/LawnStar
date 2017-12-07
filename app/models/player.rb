@@ -31,7 +31,7 @@ class Player < ApplicationRecord
       opponent_id = pg.game.opponent.to_i
       if opponent_id == self.id
         opp_score = PlayerGame.where("game_id = ?", pg.game.id).last.score
-        if my_score > opp_score
+        if my_score < opp_score
           losses += 1
         end
       else
@@ -42,6 +42,17 @@ class Player < ApplicationRecord
       end
     end
     losses
+  end
+
+  def find_nemesis
+    # nemesis_hash = {}
+    # #byebug
+    # self.player_games.each do |pg|
+    #   my_score = pg.score
+    #   opponent_id = pg.opponent.to_i
+    #   if opponent_id == self.id
+    #   end
+    # end
   end
 
   def win_percentage

@@ -28,6 +28,7 @@ class PlayersController < ApplicationController
     @losses = @player.player_losses
     @win_percentage = @player.win_percentage
     @total_games_played = @wins + @losses
+    @player.find_nemesis
   end
 
   private

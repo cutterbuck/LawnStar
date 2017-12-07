@@ -17,6 +17,8 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
     @games_played = @league.games_played
     @league_mvp = @league.find_mvp
+    @league_slacker = @league.find_league_player_with_least_amount_of_games
+    @league.sports
   end
 
   private
