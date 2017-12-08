@@ -1,5 +1,5 @@
 <div id="white-text">
-  <h1><%= @league.name %> League</h1>
+  <h1><%= @league.name.capitalize %> League</h1>
   <h4>League MVP:
   <% if @league_mvp == nil %>None<%else%>
       <%=link_to @league_mvp.name.titleize, player_path(@league_mvp) %> Win Percentage: <%= @league_mvp.win_percentage%>%</h4>

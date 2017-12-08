@@ -16,17 +16,61 @@
 
  body {
  background: url(cornhole.jpg) no-repeat center center fixed;
-
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
 }
 
+.opaque {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.align-center {
+  text-align: center;
+  text-decoration: underline;
+}
+
 div label, div h1, #white-text {
   color: white;
 }
 
+div label, div h1, #white-text, a:link, a:visited{
+  color: white;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+
 .navbar {
   border-bottom: 1px solid red
+}
+
+a:link, a:visited {
+  color: white;
+}
+
+.player-show-page-table {
+
+}
+
+th {
+    background-color: rgba(151,16,16, 0.2);
+    color: white;
+    height: 50px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+tr:hover {
+  background-color: rgba(151,16,16, 0.8)
+}
+
+input, select, textarea{
+    color: #000000;
 }
