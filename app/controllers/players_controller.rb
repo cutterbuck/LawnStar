@@ -33,7 +33,7 @@ class PlayersController < ApplicationController
     @win_percentage = @player.win_percentage
     @total_games_played = @wins + @losses
     @sports_record = @player.sports_wins_losses
-    
+
     if @player.played_any_games?
       @rival_name = @player.find_rival.first
       @amount_of_times_youve_played_eachother = @player.find_rival.last

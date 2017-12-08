@@ -136,3 +136,12 @@ input, select, textarea{
   text-decoration: none !important;
   font-size: 100px !important;
 }
+
+
+.formatted-table-text th{
+  font-size: 20px;
+}
+
+.formatted-table-text td{
+  font-size: 15px;
+}

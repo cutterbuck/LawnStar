@@ -140,4 +140,15 @@ class Player < ApplicationRecord
     sports_hash
   end
 
+  def naked_laps
+    naked_laps = 0
+    self.player_games.each do |pg|
+      my_score = pg.score
+      if my_score == 0
+        naked_laps += 1
+      end
+    end
+    naked_laps
+  end
+
 end

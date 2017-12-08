@@ -1,7 +1,7 @@
 <div id="white-text">
 <h1 class = "align-center"><%=@player.name.capitalize%></h1>
 
-<table style="width:100%">
+<table style="width:100%" class="formatted-table-text">
   <tr>
     <th>Name</th>
     <th>League you belong to</th>
@@ -27,7 +27,7 @@
 <br>
 <br>
 <h3>Your Record by Sport: </h3>
-<table class="player-show-page-table">
+<table class="player-show-page-table formatted-table-text">
     <th>Sport Name: </th>
     <%@sports_record.collect do |s, r| %>
       <th> <%=s%> </th>
@@ -55,13 +55,15 @@
 <br>
 <br>
 <br>
-<table class="player-show-page-table">
+<table class="player-show-page-table formatted-table-text">
   <tr>
     <th>Total Wins</th>
     <th>Total Losses</th>
+    <th>Naked Lap Counter</th>
   </tr>
   <tr>
     <td><%=@wins%></td>
     <td><%=@losses%></td>
+    <td><%=@player.naked_laps%></td>
   </tr>
 </table>
