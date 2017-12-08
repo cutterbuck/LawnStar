@@ -1,19 +1,21 @@
 <div id="white-text">
-<h1>Create a LawnStar Account</h1>
-
-<%= form_for @player do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.label :League %>
-  <%= f.collection_select :league_id, League.all, :id, :name %>
-
-  <%= f.submit class: "btn-danger"%>
-<% end %>
+  <div class="wrapper2">
+    <h1 class="align-center" id="lawnstar-signin-page">LawnStar</h1>
+    <h2 class="form-signin-heading align-center no-text-decoration">Please Create an Account</h2>
+      <%= form_for @player do |f| %>
+        <%= f.text_field :name, class:"form-control align-center", placeholder: "Name"%>
+        <%= f.password_field :password, class:"form-control align-center",  placeholder: "Password"%>
+        <%= f.password_field :password_confirmation, class:"form-control align-center", placeholder: "Retype Password"%>
+          <br>
+        <div class = "align-center">
+          <%= f.label :League%>
+          <%= f.collection_select :league_id, League.all, :id, :name, class:"form-control align-center"%>
+            <br>
+            <br>
+        </div>
+        <%= f.submit class: "btn btn-lg btn-primary btn-block"%>
+      <% end %>
+      <br>
+    <p class="align-center"><%= link_to "Don't have an account? Sign up here.", signin_path%></p>
+  </div>
 </div>

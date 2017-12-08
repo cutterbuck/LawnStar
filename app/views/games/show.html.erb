@@ -1,5 +1,10 @@
 <div id="white-text">
-<li>Lawn Sport: <%=@game.sport.name %></li>
+<br>
+<br>
+<br>
+
+<h1 class="align-center">Lawn Sport: <%=@game.sport.name %></h1>
+<br>
 <li>When: <%= @game.date.strftime("%B %e, %Y") %></li>
 <li>Where: <%=@game.arena %></li>
 <li>You played: <%=@game.opponent_name.capitalize %></li><br>
@@ -9,6 +14,7 @@
 <%@game.player_games.each do |pg| %>
   <li><%=pg.player.name.capitalize%>: <%=pg.score%></li>
 <%end%>
+<br>
 
-<%= link_to "Go Back to Your Stats Bro", player_path(@current_player)%>
+<button class="btn-danger"><%= link_to "Go Back to Your Stats Bro", player_path(@current_player)%></button>
 </div>

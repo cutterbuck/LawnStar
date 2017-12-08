@@ -3,17 +3,17 @@
 <%= form_for @game do |f| %>
   <%= f.label "Choose a sport:" %>
   <%= f.collection_select :sport_id, Sport.all, :id, :name %><br>
+  <br>
   <%= f.label "Choose an opponent:" %>
   <%= f.collection_select :opponent, @players, :id, :name %><br>
+  <br>
   <%= f.label "Date:" %>
   <%= f.date_field :date %><br>
+  <br>
   <%= f.label "Arena:" %>
   <%= f.text_field :arena %> </br>
-  <%= f.label "Your score:" %>
-  <input type="text" name="your_score"></br>
-  <%= f.label "Opponent's score:" %>
-  <input type="text"  name="opponent_score"></br>
-
+  <br>
+  <%= f.label "Your score:" %> <input type="text" name="your_score"> <%= f.label "Opponent's score:" %> <input type="text"  name="opponent_score">
   <%= f.submit class: "btn-danger" %>
 <% end %><br>
 </div>

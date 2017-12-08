@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create", as: "sessions"
   get '/sessions', to: "sessions#destroy"
   delete "/sessions", to: "sessions#destroy", as: "signout"
+  root "players#new"
 
 end
