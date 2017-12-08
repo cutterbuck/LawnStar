@@ -1,11 +1,13 @@
 <div id="white-text">
   <div class="wrapper2">
     <h1 class="align-center" id="lawnstar-signin-page">LawnStar</h1>
-      <%= form_for @player do |f| %>
+      <%= form_for @player, html: { multipart: true } do |f| %>
         <h2 class="form-signin-heading align-center no-text-decoration">Please Create an Account</h2>
         <%= f.text_field :name, class:"form-control align-left", placeholder: "Name"%>
         <%= f.password_field :password, class:"form-control align-left",  placeholder: "Password"%>
         <%= f.password_field :password_confirmation, class:"form-control align-left", placeholder: "Retype Password"%>
+        <%= f.label :image, "Photo" %>
+        <%= f.file_field :image %>
           <br>
         <div class = "align-center">
           <%= f.label :League%>

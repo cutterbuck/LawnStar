@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205202145) do
+ActiveRecord::Schema.define(version: 20171208153438) do
 
   create_table "games", force: :cascade do |t|
     t.integer "sport_id"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20171205202145) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["league_id"], name: "index_players_on_league_id"
   end
 

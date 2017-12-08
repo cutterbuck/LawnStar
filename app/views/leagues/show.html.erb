@@ -2,7 +2,7 @@
   <h1><%= @league.name.titleize %> League</h1>
   <h4>League MVP:
   <% if @league_mvp == nil %>None<%else%>
-      <%=link_to @league_mvp.name.titleize, player_path(@league_mvp) %> Win Percentage: <%= @league_mvp.win_percentage%>%</h4>
+      <%=link_to @league_mvp.name.titleize, player_path(@league_mvp) %> -- Win Percentage: <%= @league_mvp.win_percentage%>%</h4>
   <% end %>
   <h4>Current League Slacker: <% if @league_slacker == nil %>
             None yet. Play some games people!!

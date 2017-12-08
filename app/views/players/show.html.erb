@@ -1,6 +1,7 @@
 <div id="white-text">
 <h1 class = "align-center"><%=@player.name.capitalize%></h1>
 
+<div class = "align-center"><%= image_tag @player.image.url(:large), class: "profile-pic"%></div><br>
 <table style="width:100%" class="formatted-table-text">
   <tr>
     <th>Name</th>
@@ -17,7 +18,7 @@
     <td><% if @rival_name==nil %>
         None right now. Play some games bro!
         <% else %>
-          <%=@rival_name%> (<%=@amount_of_times_youve_played_eachother%> time(s))
+          <%=@rival_name%> -- <%=@amount_of_times_youve_played_eachother%> game(s)
         <% end %> </h3>
     </td>
     <td><%=@nemesis_name%> whooped you <%=@nemesis_wins%> time(s)!</td>
