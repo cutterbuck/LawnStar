@@ -1,11 +1,11 @@
 <div id="white-text">
   <div class="wrapper2">
     <h1 class="align-center" id="lawnstar-signin-page">LawnStar</h1>
-    <h2 class="form-signin-heading align-center no-text-decoration">Please Create an Account</h2>
       <%= form_for @player do |f| %>
-        <%= f.text_field :name, class:"form-control align-center", placeholder: "Name"%>
-        <%= f.password_field :password, class:"form-control align-center",  placeholder: "Password"%>
-        <%= f.password_field :password_confirmation, class:"form-control align-center", placeholder: "Retype Password"%>
+        <h2 class="form-signin-heading align-center no-text-decoration">Please Create an Account</h2>
+        <%= f.text_field :name, class:"form-control align-left", placeholder: "Name"%>
+        <%= f.password_field :password, class:"form-control align-left",  placeholder: "Password"%>
+        <%= f.password_field :password_confirmation, class:"form-control align-left", placeholder: "Retype Password"%>
           <br>
         <div class = "align-center">
           <%= f.label :League%>
@@ -16,6 +16,6 @@
         <%= f.submit class: "btn btn-lg btn-primary btn-block"%>
       <% end %>
       <br>
-    <p class="align-center"><%= link_to "Don't have an account? Sign up here.", signin_path%></p>
+    <p class="align-center"><%= link_to "Already have an account? Sign in here.", signin_path%></p>
   </div>
 </div>

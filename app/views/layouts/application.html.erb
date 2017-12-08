@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="<%=player_path(@current_player)%>">LawnStar</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<%=leagues_path%>">League</a></li>
+            <li class="active"><a href="<%=league_path(@current_player.league)%>">League</a></li>
             <li><a href="<%=new_game_path%>">Log a Game Bro</a></li>
             <li><a href="<%=new_sport_path%>">Add a Sport</a></li>
           </ul>

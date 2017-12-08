@@ -27,6 +27,10 @@
   text-decoration: underline;
 }
 
+.align-left {
+  text-align: left;
+}
+
 div label, div h1, #white-text {
   color: white;
 }
@@ -81,7 +85,7 @@ input, select, textarea{
 }
 
 .wrapper2 {
-  width: 50%;
+  width: 40%;
   margin-top: 80px;
   margin-bottom: 80px;
   margin: auto;
