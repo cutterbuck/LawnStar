@@ -8,10 +8,14 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(game_params)
-    opponent = PlayerGame.create(player_id: params[:game][:opponent], game_id: @game.id, score: params["opponent_score"].to_s)
-    me = PlayerGame.create(player_id: @current_player.id, game_id: @game.id, score: params["your_score"].to_s)
-    redirect_to game_path(@game)
+    @game = Game.new(game_params)
+    if @game.valid?
+      opponent = PlayerGame.create(player_id: params[:game][:opponent], game_id: @game.id, score: params["opponent_score"].to_s)
+      me = PlayerGame.create(player_id: @current_player.id, game_id: @game.id, score: params["your_score"].to_s)
+      redirect_to game_path(@game)
+    else
+      render :new
+    end
   end
 
   def show

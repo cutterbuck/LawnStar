@@ -2,6 +2,11 @@
   belongs_to :sport
   has_many :player_games
   has_many :players, through: :player_games
+  #validate :cannot_tie
+
+  def cannot_tie
+    byebug
+  end
   #validate score is not tied, games can never end in a tie bro
   def game_winner_or_loser_message
     #byebug
