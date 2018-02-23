@@ -1,26 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+LawnStar is a Ruby/Rails based application that helps you tracks lawn game stats for you and your friends so that you can determine who actually is the Ultimate lawn gamer. A use can sign up, create, and join a league. Once you have your friends join your league, you are ready to log games. LawnStar tracks aggregate wins and losses, arch rivals, nesemesi, and wins and losses by sport.
 
-Note to future-self: if creating a game app make sure to add a W_OR_L column to PlayerGame join table, much easier to track wins and losses based on an actual attribute then going through score.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+Lawnstar
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Created by Brendan McIlhenny and Jake MacNaughton
+2017

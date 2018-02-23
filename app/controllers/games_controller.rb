@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @players = Player.all.select{|p| p != @current_player}
+    @players = Player.all.select{|p| p.league_id == @current_player.league_id && p != @current_player}
   end
 
   def create
