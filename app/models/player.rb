@@ -5,12 +5,8 @@ class Player < ApplicationRecord
   has_secure_password
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-<<<<<<< HEAD
   validates :name, :password, presence: true
 
-=======
-#
->>>>>>> 60eaa579535b7e8a26b8cf5281d011bf97ed7bfa
   def player_wins
     wins = 0
     self.player_games.each do |pg|
